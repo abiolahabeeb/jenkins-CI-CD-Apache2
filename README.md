@@ -84,6 +84,19 @@ sudo apt-get install jenkins
 - Run `ls -la`
 
 - In jenkins, under the Build Steps, select **Execute shell** and put the following commands
-  `rm /var/www/html/index.html` This command remove the default Apache2 web server homepage
-  `cp -r * /var/www/html/`  This copy all files and directories from the current working directory to the /var/www/html/
+- `rm /var/www/html/index.html` This command remove the default Apache2 web server homepage
+- `cp -r * /var/www/html/`  This copy all files and directories from the current working directory to the /var/www/html/
+
+#### Time to plan for CD - Continuous Delivery of our code
+
+- Head over to GitHub and Click on Settings
   
+- Click on Webhooks and create a new Webhook
+- Payload URL <http://ip:8080/github-webhook/>
+- Content type - **application/json**
+- Secret- Leave it empty
+- Click **Add Webhook**
+
+#### You can go over to edit your code on your PC and Push to GitHub, you will see that your Jenkins will build it automatically with the help of the Webhook
+
+## Thank you for reading
