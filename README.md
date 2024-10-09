@@ -79,9 +79,9 @@ sudo apt-get install jenkins
 - Run the following command `cd /var/www/html`
 - Copy the **Console Output** of the **Building in Workspace ... /var/lib/jenkins/workspace/ab-jenkins ...** and past it in the shell e.g `cd /var/lib/jenkins/workspace/ab-jenkins`
 - `cd  /var/www`
-- `usermod -aG www-data jenkins`
-- `sudo chown jenkins:www-data html`
-- Run `ls -la`
+- Run `usermod -aG www-data jenkins` to add the user "jenkins" to the "www-data" group on a Linux/Unix-based system
+- Run `sudo chown jenkins:www-data html` to change the ownership of the html directory (or file) so that the user "jenkins" becomes the owner and the group "www-data" is the group owner
+- Run `ls -la` to list the contents of a directory in long format with detailed information, including hidden files
 
 - In jenkins, under the Build Steps, select **Execute shell** and put the following commands
 - `rm /var/www/html/index.html` This command remove the default Apache2 web server homepage
