@@ -69,17 +69,19 @@ sudo apt-get install jenkins
 - Click on **Save and Continue**
 - Click on **Save and Finish**
 
-- Click **New Item**
+- Click **New Item** to create a job
 - Input an **item name**, do not add space in the item name, click **Ok** and enter a Description of what you're trying to build or automate.
+- Select **Freestyle Project**
 - Under Source Code Management, select **Git**
 - Copy the repo from Github, http link and post in the Repository URL
 - Branch main or master, depends on what you have
 - Select **GitHub hook trigger for GITScm poling**
 - Click **Save**
 - Run the following command `cd /var/www/html`
+- Run `ls -l`
 - Copy the **Console Output** of the **Building in Workspace ... /var/lib/jenkins/workspace/ab-jenkins ...** and past it in the shell e.g `cd /var/lib/jenkins/workspace/ab-jenkins`
 - `cd  /var/www`
-- Run `usermod -aG www-data jenkins` to add the user "jenkins" to the "www-data" group on a Linux/Unix-based system
+- Run `usermod -aG www-data jenkins` to add the user "jenkins" to the "www-data" group on this Linux system
 - Run `sudo chown jenkins:www-data html` to change the ownership of the html directory (or file) so that the user "jenkins" becomes the owner and the group "www-data" is the group owner
 - Run `ls -la` to list the contents of a directory in long format with detailed information, including hidden files
 
