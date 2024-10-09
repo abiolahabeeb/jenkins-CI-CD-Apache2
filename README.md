@@ -2,12 +2,12 @@
 
 Steps to follow in Automating a Static Website with Jenkins using Apache2 Web Server
 
-## Create an EC2 with the appropriate instance type. (e,g t2.micro, **t2.medium** was used in this tutorial)
+## Create an EC2 with the appropriate instance type. (e.g t2.micro, *t2.medium* was used in this tutorial)
 
 - Give the instance a name
 - AMI Type - **Ubuntu**
 - Create a key-pair
-- Create a *security group* (allow only SSH at this point)
+- Create a **security group** (allow only SSH at this point)
 - Launch an instance
 
 ## SSH into the EC2 instance via the SSH Client
@@ -26,7 +26,7 @@ Steps to follow in Automating a Static Website with Jenkins using Apache2 Web Se
 
 ## Jenkins Installation
 
-- Head over to *Jenkins documentation website* - <https://www.jenkins.io/doc/book/installing/linux/> on Linux installation since we are making use of the Ubuntu OS on our EC2 instance
+- Head over to **Jenkins documentation website** - <https://www.jenkins.io/doc/book/installing/linux/> on Linux installation since we are making use of the Ubuntu OS on our EC2 instance
 
 The first thing is install **Java**
 
@@ -36,7 +36,7 @@ The first thing is install **Java**
 
 - Jenkins for Ubuntu
 
-```
+```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 
@@ -48,3 +48,15 @@ sudo apt-get update
 
 sudo apt-get install jenkins
 ```
+
+`sudo systemctl enable jenkins` to enable jenkins
+`sudo systemctl start jenkins` to start jenkins
+`sudo systemctl status jenkins` to check jenkins status
+
+### ----- ----- ------ ------ ------ ------- --------- --------
+
+### Connecting to the Jenkins Server
+
+- First, Let us configure our security group to allow this kind of traffic
+ Click on the Instance and **select the security tab**, edit the inbound rule by adding the following rules to the initial SSH 22, it will look like the following
+ ![Reference Image](/screenshots/inbound%20rule.jpg)
