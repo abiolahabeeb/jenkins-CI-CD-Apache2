@@ -60,3 +60,30 @@ sudo apt-get install jenkins
 - First, Let us configure our security group to allow this kind of traffic
  Click on the Instance and **select the security tab**, edit the inbound rule by adding the following rules to the initial SSH 22, it will look like the following
  ![Reference Image](/screenshots/inbound%20rule.jpg)
+
+- Copy the public ip address of the EC2 instance and attach it to the port 8080 like this, `public ip:8080` and open this on a new tab to launch your Jenkins page.
+
+- Run `cat /var/lib/jenkins/secrets/initialAdminPassword` access your jenkins Administrator password
+- Click on **Install suggested plugins**
+- Create **First Admin User** and input the necessary information
+- Click on **Save and Continue**
+- Click on **Save and Finish**
+
+- Click **New Item**
+- Input an **item name**, do not add space in the item name, click **Ok** and enter a Description of what you're trying to build or automate.
+- Under Source Code Management, select **Git**
+- Copy the repo from Github, http link and post in the Repository URL
+- Branch main or master, depends on what you have
+- Select **GitHub hook trigger for GITScm poling**
+- Click **Save**
+- Run the following command `cd /var/www/html`
+- Copy the **Console Output** of the **Building in Workspace ... /var/lib/jenkins/workspace/ab-jenkins ...** and past it in the shell e.g `cd /var/lib/jenkins/workspace/ab-jenkins`
+- `cd  /var/www`
+- `usermod -aG www-data jenkins`
+- `sudo chown jenkins:www-data html`
+- Run `ls -la`
+
+- In jenkins, under the Build Steps, select **Execute shell** and put the following commands
+  `rm /var/www/html/index.html` This command remove the default Apache2 web server homepage
+  `cp -r * /var/www/html/`  This copy all files and directories from the current working directory to the /var/www/html/
+  
