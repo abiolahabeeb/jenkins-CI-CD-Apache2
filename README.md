@@ -99,4 +99,4 @@ sudo apt-get install jenkins
 
 #### You can go over to edit your code on your PC and Push to GitHub, you will see that your Jenkins will build it automatically with the help of the Webhook
 
-## Thank you for reading
+## Thank you for reading  :star_struck:
